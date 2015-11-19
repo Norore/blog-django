@@ -1,0 +1,60 @@
+body {
+    background: #eee;
+    margin: 0 auto;
+    padding: 0 auto;
+}
+
+/* main header part */
+header#mainheader {
+    background: #99B8C9;
+    height: 120px;
+    margin: auto;
+    margin-top: 1em;
+    width: 80%;
+    border-radius: 25px 25px 0px 0px;
+}
+
+header#mainheader p {
+    padding: 1em 3em;
+    text-align: right;
+}
+
+/* main navigation menu part */
+nav#mainmenu {
+    background: yellow;
+    margin: 0 auto;
+    padding: 1px;
+    width: 80%;
+    height: 1.2em;
+}
+nav#mainmenu ul {
+    margin: 0 auto;
+    padding: 0;
+    list-style: outside none none;
+    font-size: 1.0em;
+}
+nav#mainmenu ul li {
+    padding-left: 0.1em;
+}
+
+/* main section part */
+section#main {
+    width: 65%;
+    margin: 0px;
+    margin-left: 10%;
+    float: left;
+}
+aside#quickmenu {
+    background: white;
+    margin: 0px;
+    margin-right: 10%;
+    float: right;
+    width: 15%;
+}
+
+/* main footer part */
+footer#mainfooter {
+    clear: both;
+    width: 80%;
+    margin: 0 auto;
+}

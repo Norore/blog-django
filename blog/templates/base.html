@@ -1,0 +1,23 @@
+<!doctype HTML>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Blog de Norore :: {% block title %}{% endblock %}</title>
+        <link type="text/css" href="/static/css/stylesheet.css" rel="stylesheet" />
+    </head>
+    <body>
+        <header id="mainheader"><p>En tête du blog</p></header>
+        <nav id="mainmenu">
+            <ul>
+                <li>Accueil</li>
+            </ul>
+        </nav>
+        <section id="main">
+        {% block content %}{% endblock %}
+        </section>
+            <aside id="quickmenu">
+                Block à ajouter sur le côté
+            </aside>
+        <footer id="mainfooter">Blog personnel de Norore</footer>
+    </body>
+</html>
