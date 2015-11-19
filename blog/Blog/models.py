@@ -25,7 +25,7 @@ class Article(models.Model):
     content = models.TextField()
     creation_date = models.DateTimeField()
     edit_date = models.DateTimeField(blank=True, null=True)
-    tags = models.TextField()
+    tags = models.SlugField()
     def __unicode__(self):
         return self.title
 
