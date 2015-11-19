@@ -88,9 +88,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="1"
      inkscape:pageshadow="2"
-     inkscape:zoom="1.1047529"
-     inkscape:cx="487.32138"
-     inkscape:cy="380.79261"
+     inkscape:zoom="0.55237647"
+     inkscape:cx="899.44582"
+     inkscape:cy="336.49589"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -117,6 +117,13 @@
      inkscape:groupmode="layer"
      id="layer1"
      transform="translate(0,-252.36219)">
+    <rect
+       style="opacity:1;fill:#585858;fill-opacity:1;stroke:none;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect4282"
+       width="1280"
+       height="800"
+       x="0"
+       y="252.36218" />
     <path
        inkscape:connector-curvature="0"
        id="path4141"
