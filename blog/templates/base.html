@@ -13,11 +13,15 @@
             </ul>
         </nav>
         <section id="main">
-        {% block content %}{% endblock %}
-        </section>
+            <section id="content">
+                {% block content %}{% endblock %}
+            </section>
             <aside id="quickmenu">
                 Block à ajouter sur le côté
             </aside>
-        <footer id="mainfooter">Blog personnel de Norore</footer>
+        </section>
+        <footer id="mainfooter">
+            <p>Blog personnel de Norore</p>
+        </footer>
     </body>
 </html>

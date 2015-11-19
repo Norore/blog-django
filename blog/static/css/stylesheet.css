@@ -1,12 +1,20 @@
+html, body{
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
 body {
-    background: #eee;
+    background: #585858;
+    min-height: 100%;
+    padding: 0 10px auto;
     margin: 0 auto;
-    padding: 0 auto;
+    position: relative;
 }
 
 /* main header part */
 header#mainheader {
-    background: #99B8C9;
+    background: #ccc;
     height: 120px;
     margin: auto;
     margin-top: 1em;
@@ -21,40 +29,60 @@ header#mainheader p {
 
 /* main navigation menu part */
 nav#mainmenu {
-    background: yellow;
+    background: #3e3748;
     margin: 0 auto;
-    padding: 1px;
     width: 80%;
-    height: 1.2em;
+    height: 1.3em;
 }
 nav#mainmenu ul {
     margin: 0 auto;
-    padding: 0;
+    padding: 1px 2px;
     list-style: outside none none;
     font-size: 1.0em;
+    line-height: 1.3em;
 }
 nav#mainmenu ul li {
     padding-left: 0.1em;
+    color: #ccc;
+    padding-left: 2px;
 }
 
 /* main section part */
 section#main {
-    width: 65%;
-    margin: 0px;
+    background: #ccc;
+    width: 80%;
+    margin: 0 auto;
     margin-left: 10%;
+    overflow: auto;
+    padding: 0;
+}
+section#content {
     float: left;
+    padding: 0 5px;
+    background: white;
+    margin: 5px;
 }
 aside#quickmenu {
-    background: white;
-    margin: 0px;
-    margin-right: 10%;
+    background: #ccc;
+    border-left: 1px dashed #3e4651;
+    margin: 0 auto;
+    margin-top: 5px;
     float: right;
     width: 15%;
+    padding: 0 5px;
 }
 
 /* main footer part */
 footer#mainfooter {
-    clear: both;
+    background: #3e3748;
+    color: #916F8A;
     width: 80%;
+    margin: 0 auto;
+    margin-left: 10%;
+    padding: 0;
+    overflow: auto;
+}
+footer#mainfooter p{
+    padding: 2px;
     margin: 0 auto;
 }
