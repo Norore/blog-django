@@ -59,9 +59,13 @@ section#main {
 section#content {
     float: left;
     padding: 0 5px;
-    background: white;
-    margin: 5px;
+    margin-left: 5px;
+    margin-top: 10px;
+    margin-bottom: 0;
+    width: 82%;
 }
+
+/* quickmenu part */
 aside#quickmenu {
     background: #ccc;
     border-left: 1px dashed #3e4651;
@@ -72,10 +76,62 @@ aside#quickmenu {
     padding: 0 5px;
 }
 
+aside#quickmenu section{
+    background: white;
+    box-shadow: 0 0 5px #585858;
+    margin: 0 auto;
+    margin-bottom: 10px;
+}
+aside#quickmenu section header{
+    border-bottom: 1px solid #2f8282;
+}
+aside#quickmenu section header h1{
+    font-size: 1.2em;
+    text-align: center;
+    color: #6c535d;
+    padding: 2px;
+    margin: 0 auto;
+}
+aside#quickmenu section ul{
+    margin: 0 auto;
+    padding: 0;
+    padding-left: 18px;
+}
+
+/* article part */
+article{
+    background: white;
+    padding: 5px;
+    margin-bottom: 10px;
+    box-shadow: 0 0 5px #585858;
+}
+article hr{
+    color: #2f8282;
+    margin-top: 4px;
+    margin-bottom: 4px;
+}
+article header h1{
+    font-size: 1.5em;
+    margin: 0 auto;
+    color: #6c535d;
+}
+article header p, article footer p{
+    color: #666666;
+    font-size: 0.8em;
+    margin: 0 auto;
+    margin-top: 4px;
+}
+
+/* link part */
+article a, aside#quickmenu a{
+    color: #ff6600;
+    text-decoration: none;
+}
+
 /* main footer part */
 footer#mainfooter {
     background: #3e3748;
-    color: #916F8A;
+    color: #beb7c8;
     width: 80%;
     margin: 0 auto;
     margin-left: 10%;
@@ -85,4 +141,9 @@ footer#mainfooter {
 footer#mainfooter p{
     padding: 2px;
     margin: 0 auto;
+    font-family: "Courier 10 Pitch", Courier;
+}
+footer#mainfooter a{
+    color: white;
+    text-decoration: none;
 }

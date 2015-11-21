@@ -8,6 +8,7 @@ import os
 class Author(models.Model):
     author = models.OneToOneField(User)
     site = models.URLField(max_length=200)
+    description = models.TextField()
     avatar = models.ImageField(upload_to="authors/", default="authors/anonymous.png")
     def __unicode__(self):
         return self.author.username
@@ -18,6 +19,18 @@ class Categorie(models.Model):
     def __unicode__(self):
         return self.name
 
+class Tags(models.Model):
+    title = models.CharField(max_length=50)
+    slug = models.SlugField()
+
+    class Meta:
+        verbose_name = "tag"
+        verbose_name_plural = "tags"
+        ordering = ['title']
+
+    def __unicode__(self):
+        return self.title
+
 class Article(models.Model):
     title = models.CharField(max_length=200)
     author = models.ForeignKey(Author)
@@ -25,7 +38,8 @@ class Article(models.Model):
     content = models.TextField()
     creation_date = models.DateTimeField()
     edit_date = models.DateTimeField(blank=True, null=True)
-    tags = models.SlugField()
+    published = models.BooleanField(default=False)
+    tags = models.ManyToManyField(Tags)
     def __unicode__(self):
         return self.title
 
@@ -33,6 +47,7 @@ class Page(models.Model):
     title = models.CharField(max_length=200)
     author = models.ForeignKey(Author)
     content = models.TextField()
+    published = models.BooleanField(default=False)
     creation_date = models.DateTimeField()
     edit_date = models.DateTimeField(blank=True, null=True)
     def __unicode__(self):
@@ -45,6 +60,16 @@ class Comment(models.Model):
     site = models.URLField(max_length=200, blank=True, null=True)
     comment = models.TextField()
     creation_date = models.DateTimeField()
+    published = models.BooleanField(default=False)
     def __unicode__(self):
         df = DateFormat(self.creation_date)
         return self.pseudo+" le "+df.format('Y/m/d')+" a "+df.format('H:m:s')
+
+class Link(models.Model):
+    link = models.URLField()
+    name = models.CharField(max_length=50)
+    description = models.CharField(max_length=140)
+    published = models.BooleanField()
+
+    def __unicode__(self):
+        return self.name

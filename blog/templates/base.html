@@ -17,11 +17,60 @@
                 {% block content %}{% endblock %}
             </section>
             <aside id="quickmenu">
-                Block à ajouter sur le côté
+                <section>
+                    <header>
+                        <h1>Connecté sous Norore</h1>
+                    </header>
+                    <ul>
+                        <li><a href="#">Changer mon profil</a></li>
+                        <li><a href="#">Ajouter une catégorie</a></li>
+                        <li><a href="#">Ajouter un article</a></li>
+                        <li><a href="#">Ajouter une page</a></li>
+                        <li><a href="#">Commentaires à modérer</a> : 0</li>
+                        <li><a href="#">Administration globale</a></li>
+                    </ul>
+                </section>
+                <section>
+                    <header>
+                        <h1>Catégories</h1>
+                    </header>
+                    <ul>
+                        <li><a href="#">Catégorie 1</a></li>
+                        <li><a href="#">Catégorie 2</a></li>
+                    </ul>
+                </section>
+                <section>
+                    <header>
+                        <h1>Archives</h1>
+                    </header>
+                    <ul>
+                        <li><a href="#">Année</a>
+                            <ul>
+                                <li><a href="#">Mois</a>
+                                <ul>
+                                    <li><a href="#">Jour</a></li>
+                                </ul>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </section>
+                <section>
+                    <header>
+                        <h1>Liens</h1>
+                    </header>
+                    <ul>
+                        <li><a href="http://bioinfo-fr.net">bioinfo-fr.net</a></li>
+                        <li><a href="https://jebif.fr">RSG France - JeBiF</a></li>
+                        <li><a href="http://genma.free.fr">Le blog de Genma</a></li>
+                    </ul>
+                </section>
             </aside>
         </section>
         <footer id="mainfooter">
-            <p>Blog personnel de Norore</p>
+            <p>Blog personnel de <a href="http://www.norore.fr">Norore</a><br />
+            Fièrement propulsé par <a href="https://www.djangoproject.com/">DJango 1.8.6</a>, source disponible sur <a href="https://github.com/Norore/blog-django">GitHub</a><br />
+            Sauf mention contraire, le contenu du blog est sous licence Creative Commons 2.0 by NC</p>
         </footer>
     </body>
 </html>
