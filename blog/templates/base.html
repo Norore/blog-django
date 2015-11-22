@@ -10,6 +10,9 @@
         <nav id="mainmenu">
             <ul>
                 <li>Accueil</li>
+                {% for page in pages %}
+                <li><a href="/p/{{page.id}}">{{ page.title }}</a></li>
+                {% endfor %}
             </ul>
         </nav>
         <section id="main">
@@ -35,8 +38,11 @@
                         <h1>Catégories</h1>
                     </header>
                     <ul>
-                        <li><a href="#">Catégorie 1</a></li>
-                        <li><a href="#">Catégorie 2</a></li>
+                        {% for categorie in cats %}
+                        <li><a href="/cat/{{ categorie.id }}">{{ categorie.name }}</a> ()</li>
+                        {% empty %}
+                        <li>Aucune catégorie</li>
+                        {% endfor %}
                     </ul>
                 </section>
                 <section>
@@ -60,9 +66,9 @@
                         <h1>Liens</h1>
                     </header>
                     <ul>
-                        <li><a href="http://bioinfo-fr.net">bioinfo-fr.net</a></li>
-                        <li><a href="https://jebif.fr">RSG France - JeBiF</a></li>
-                        <li><a href="http://genma.free.fr">Le blog de Genma</a></li>
+                        {% for url in links %}
+                        <li><a href="{{ url.link }}" title="{{ url.description }}">{{ url.name }}</a></li>
+                        {% endfor %}
                     </ul>
                 </section>
             </aside>
