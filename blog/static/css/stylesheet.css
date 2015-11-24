@@ -44,11 +44,20 @@ nav#mainmenu ul {
 nav#mainmenu ul li {
     padding-left: 0.1em;
     color: #ccc;
-    padding-left: 2px;
+    padding-left: 5px;
+    float: left;
+}
+nav#mainmenu ul li a{
+    color: #ccc;
+    text-decoration: none;
+}
+nav#mainmenu ul li a:hover{
+    color: #eee;
 }
 
 /* main section part */
 section#main {
+    clear: right;
     background: #ccc;
     width: 80%;
     margin: 0 auto;

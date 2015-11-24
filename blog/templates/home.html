@@ -11,17 +11,22 @@
         <h1>{{ article.title }}</h1>
         <p>Publié le {{ article.creation_date }}, 
             par <a href="/auteur/{{ article.author }}">{{ article.author }}</a>, 
-            dans <a href="/cat/{{ article.categorie }}">{{ article.categorie }}</a></p>
+            dans <a href="/categorie/{{ article.categorie.id }}">{{ article.categorie }}</a></p>
             <hr />
     </header>
     <p>
-    {{ article.content }}
+    {{ article.content|safe }}
     </p>
     <footer>
         <hr />
-        <p><a href="/article/{{ article.id }}#comments">nb comm</a> commentaires -
-        {% for tag in article.tags.name %}
-            {{ tag }}
+        <p><a href="/article/{{ article.id }}#comments">
+            {% if comments|length < 1 %}
+                {{ comments|length }}</a> commentaire -
+            {% else %}
+                {{ comments|length }}</a> commentaires -
+            {% endif %}
+        {% for tag in article.tags.all %}
+            <a href="/tag/{{ tag.slug }}/" title="Tag {{ tag.title }}">{{ tag.title }}</a>,
         {% empty %}
             aucun tag
         {% endfor %}

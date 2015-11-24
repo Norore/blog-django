@@ -9,9 +9,9 @@
         <header id="mainheader"><p>En tête du blog</p></header>
         <nav id="mainmenu">
             <ul>
-                <li>Accueil</li>
+                <li><a href="/">Accueil</a></li>
                 {% for page in pages %}
-                <li><a href="/p/{{page.id}}">{{ page.title }}</a></li>
+                <li><a href="/page/{{page.id}}">{{ page.title }}</a></li>
                 {% endfor %}
             </ul>
         </nav>
@@ -39,7 +39,7 @@
                     </header>
                     <ul>
                         {% for categorie in cats %}
-                        <li><a href="/cat/{{ categorie.id }}">{{ categorie.name }}</a> ()</li>
+                        <li><a href="/categorie/{{ categorie.id }}">{{ categorie.name }}</a> ({{ categorie.article__categorie|length }})</li>
                         {% empty %}
                         <li>Aucune catégorie</li>
                         {% endfor %}
