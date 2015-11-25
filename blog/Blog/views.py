@@ -1,16 +1,32 @@
+from django import get_version
 from django.shortcuts import render
 from models import *
 
 # Create your views here.
-def index(request):
+def base():
     links = Link.objects.all()
     cats = Categorie.objects.all().order_by('name')
-    articles = Article.objects.filter(published=True).order_by('-creation_date')[:10]
-    tags = Tags.objects.order_by('article__id').order_by('id')
     pages = Page.objects.all().order_by('title')
-    context = {'links': links,
-               'cats': cats,
-               'articles': articles,
-               'pages': pages,
-               'tags': tags}
+
+    context = { 'version': get_version(),
+                'links': links,
+                'cats': cats,
+                'pages': pages,
+              }
+    return context
+
+def index(request):
+    context = base()
+    articles = Article.objects.filter(published=True).order_by('-creation_date')[:10]
+    comments = Article.objects.order_by('comment__id').filter(published=True).filter(comment__published=True).order_by('-creation_date')[:10]
+    context['articles'] = articles
+    context['comments'] = comments
     return render(request, "home.html", context)
+
+def show_page(request, page=None):
+    page = Page.objects.filter(id=page).first()
+
+    context = base()
+    context['page'] = page
+
+    return render(request, "show_page.html", context)

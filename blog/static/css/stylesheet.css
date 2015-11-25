@@ -57,7 +57,7 @@ nav#mainmenu ul li a:hover{
 
 /* main section part */
 section#main {
-    clear: right;
+    clear: both;
     background: #ccc;
     width: 80%;
     margin: 0 auto;
@@ -90,9 +90,11 @@ aside#quickmenu section{
     box-shadow: 0 0 5px #585858;
     margin: 0 auto;
     margin-bottom: 10px;
+    padding-bottom: 3px;
 }
 aside#quickmenu section header{
     border-bottom: 1px solid #2f8282;
+    margin-bottom: 2px;
 }
 aside#quickmenu section header h1{
     font-size: 1.2em;

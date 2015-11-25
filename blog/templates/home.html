@@ -20,11 +20,15 @@
     <footer>
         <hr />
         <p><a href="/article/{{ article.id }}#comments">
-            {% if comments|length < 1 %}
-                {{ comments|length }}</a> commentaire -
-            {% else %}
-                {{ comments|length }}</a> commentaires -
+            {% for comment in comments %}
+            {% if comment.id == article.id %}
+                {% if comment|length < 2 %}
+                    {{ comment|length }}</a> commentaire -
+                {% else %}
+                    {{ comment|length }}</a> commentaires -
+                {% endif %}
             {% endif %}
+            {% endfor %}
         {% for tag in article.tags.all %}
             <a href="/tag/{{ tag.slug }}/" title="Tag {{ tag.title }}">{{ tag.title }}</a>,
         {% empty %}
