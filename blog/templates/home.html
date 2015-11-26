@@ -11,11 +11,15 @@
         <h1>{{ article.title }}</h1>
         <p>Publié le {{ article.creation_date }}, 
             par <a href="/auteur/{{ article.author }}">{{ article.author }}</a>, 
-            dans <a href="/categorie/{{ article.categorie.id }}">{{ article.categorie }}</a></p>
+            dans <a href="/categorie/{{ article.categorie.id }}">{{ article.categorie }}</a>
+            {% if article.edit_date %}
+            <br />
+            Modifé le {{ article.edit_date }}
+            {% endif %}</p>
             <hr />
     </header>
     <p>
-    {{ article.content|safe }}
+    {{ article.content_markdown }}
     </p>
     <footer>
         <hr />

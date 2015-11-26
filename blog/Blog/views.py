@@ -23,8 +23,9 @@ def index(request):
     context['comments'] = comments
     return render(request, "home.html", context)
 
-def show_page(request, page=None):
-    page = Page.objects.filter(id=page).first()
+def show_page(request, page):
+#    page = Page.objects.filter(id=page).first()
+    page = Page.objects.get(id=page)
 
     context = base()
     context['page'] = page

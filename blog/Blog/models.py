@@ -1,6 +1,8 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.utils.dateformat import DateFormat
+from django.utils.safestring import mark_safe
+import markdown
 from datetime import datetime
 import os
 
@@ -42,6 +44,8 @@ class Article(models.Model):
     tags = models.ManyToManyField(Tags)
     def __unicode__(self):
         return self.title
+    def content_markdown(self):
+        return mark_safe(markdown.markdown(self.content))
 
 class Page(models.Model):
     title = models.CharField(max_length=200)
