@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block title %}{{ categorie.name }}{% endblock %}
+
+{% block content %}
+
+<article>
+    <header>
+        <h1>{{ categorie.name }}</h1>
+        <p>{{ categorie.desc_markdown }}</p>
+        <hr />
+    </header>
+    <p>
+    {% if articles|length > 0 %}
+    <ul>
+        {% for article in articles %}
+        <li><a href="/a/{{ article.id }}" title="{{ article.id }}">{{ article.title }}</a></li>
+        {% endfor %}
+    </ul>
+    {% else %}
+    Cette catégorie ne contient pas encore d'article.
+    {% endif %}
+    </p>
+</article>
+
+{% endblock %}

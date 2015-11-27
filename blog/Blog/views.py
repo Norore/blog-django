@@ -24,10 +24,29 @@ def index(request):
     return render(request, "home.html", context)
 
 def show_page(request, page):
-#    page = Page.objects.filter(id=page).first()
     page = Page.objects.get(id=page)
 
     context = base()
     context['page'] = page
 
     return render(request, "show_page.html", context)
+
+def show_categorie(request, cat):
+    categorie = Categorie.objects.get(id=cat)
+    articles = Article.objects.filter(categorie=cat, published=True).order_by('-creation_date')
+
+    context = base()
+    context['categorie'] = categorie
+    context['articles'] = articles
+
+    return render(request, "show_categorie.html", context)
+
+def show_article(request, art):
+    article = Article.objects.get(id=art)
+    comments = Comment.objects.filter(article__id=art)
+
+    context = base()
+    context['article'] = article
+    context['comments'] = comments
+
+    return render(request, "show_article.html", context)

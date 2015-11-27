@@ -20,6 +20,8 @@ class Categorie(models.Model):
     description = models.TextField()
     def __unicode__(self):
         return self.name
+    def desc_markdown(self):
+        return mark_safe(markdown.markdown(self.description))
 
 class Tags(models.Model):
     title = models.CharField(max_length=50)
@@ -56,6 +58,8 @@ class Page(models.Model):
     edit_date = models.DateTimeField(blank=True, null=True)
     def __unicode__(self):
         return self.title
+    def content_markdown(self):
+        return mark_safe(markdown.markdown(self.content))
 
 class Comment(models.Model):
     article = models.ForeignKey(Article)
@@ -68,6 +72,8 @@ class Comment(models.Model):
     def __unicode__(self):
         df = DateFormat(self.creation_date)
         return self.pseudo+" le "+df.format('Y/m/d')+" a "+df.format('H:m:s')
+    def content_markdown(self):
+        return mark_safe(markdown.markdown(self.comment))
 
 class Link(models.Model):
     link = models.URLField()

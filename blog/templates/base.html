@@ -39,7 +39,7 @@
                     </header>
                     <ul>
                         {% for categorie in cats %}
-                        <li><a href="/categorie/{{ categorie.id }}">{{ categorie.name }}</a> ({{ categorie.article__categorie|length }})</li>
+                        <li><a href="/c/{{ categorie.id }}">{{ categorie.name }}</a> ({{ categorie.article__categorie|length }})</li>
                         {% empty %}
                         <li>Aucune catégorie</li>
                         {% endfor %}

@@ -7,7 +7,8 @@
 <article>
     <header>
         <h1>{{ page.title }}</h1>
-        <p>Publié le {{ page.creation_date }}, par {{ page.author }}
+        <p>Publié le {{ page.creation_date }}, 
+        par <a href="/auteur/{{ page.author}}">{{ page.author }}</a>
         {% if page.edit_date %}
         <br />
         Dernière modification le {{ page.edit_date }}
@@ -15,7 +16,7 @@
         </p>
         <hr />
     </header>
-    {{ page.content }}
+    {{ page.content_markdown }}
 </article>
 
 {% endblock %}
