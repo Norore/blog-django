@@ -25,13 +25,15 @@
         <hr />
         <p><a href="/a/{{ article.id }}#comments">
             {% for comment in comments %}
-            {% if comment.id == article.id %}
-                {% if comment|length < 2 %}
-                    {{ comment|length }}</a> commentaire -
+            {% if comment.article == article.id %}
+                {% if comment.article|length < 2 %}
+                    {{ comment.article|length }}</a> commentaire -
                 {% else %}
-                    {{ comment|length }}</a> commentaires -
+                    {{ comment.article|length }}</a> commentaires -
                 {% endif %}
             {% endif %}
+            {% empty %}
+                0</a> commentaire - 
             {% endfor %}
         {% for tag in article.tags.all %}
             <a href="/tag/{{ tag.slug }}/" title="Tag {{ tag.title }}">{{ tag.title }}</a>,

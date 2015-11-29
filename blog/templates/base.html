@@ -37,9 +37,10 @@
                     <header>
                         <h1>Catégories</h1>
                     </header>
+                    {{ cats.values }}
                     <ul>
                         {% for categorie in cats %}
-                        <li><a href="/c/{{ categorie.id }}">{{ categorie.name }}</a> ({{ categorie.article__categorie|length }})</li>
+                        <li><a href="/c/{{ categorie.id }}">{{ categorie.name }}</a> ({{ categorie.nb_art }})</li>
                         {% empty %}
                         <li>Aucune catégorie</li>
                         {% endfor %}
@@ -49,7 +50,9 @@
                     <header>
                         <h1>Archives</h1>
                     </header>
+                    {{ archives }}
                     <ul>
+                        {% for archive in archives %}
                         <li><a href="#">Année</a>
                             <ul>
                                 <li><a href="#">Mois</a>
@@ -59,6 +62,9 @@
                                 </li>
                             </ul>
                         </li>
+                        {% empty %}
+                        <li>Aucun article publié</li>
+                        {% endfor %}
                     </ul>
                 </section>
                 <section>
