@@ -158,3 +158,12 @@ footer#mainfooter a{
     color: white;
     text-decoration: none;
 }
+
+/* special classes */
+
+p.error{
+    background: pink;
+    border: 1px solid red;
+    color: red;
+    padding: 4px;
+}

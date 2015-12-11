@@ -1,8 +1,22 @@
 {% extends "base.html" %}
 
-{% block title %}{{ article.title }}{% endblock %}
+{% block title %}
+
+{% if article.published %}
+
+{{ article.title }}
+
+{% else %}
+
+article non trouvé
+
+{% endif %}
+
+{% endblock %}
 
 {% block content %}
+
+{% if article.published %}
 
 <article>
     <header>
@@ -21,15 +35,7 @@
     <footer>
         <hr />
         <p><a href="/a/{{ article.id }}#comments">
-            {% for comment in comments %}
-            {% if comment.id == article.id %}
-                {% if comment|length < 2 %}
-                    {{ comment|length }}</a> commentaire -
-                {% else %}
-                    {{ comment|length }}</a> commentaires -
-                {% endif %}
-            {% endif %}
-            {% endfor %}
+            {{ comments.count }}</a> {{ comments.count|pluralize:"commentaire,commentaires" }} -
         {% for tag in article.tags.all %}
             <a href="/tag/{{ tag.slug }}/" title="Tag {{ tag.title }}">{{ tag.title }}</a>,
         {% empty %}
@@ -65,5 +71,11 @@
     Personne n'a encore commenté cet article.
     {% endfor %}
 </section>
+
+{% else %}
+
+<p class="error">L'article n'existe pas !</p>
+
+{% endif %}
 
 {% endblock %}

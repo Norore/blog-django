@@ -19,22 +19,12 @@
             <hr />
     </header>
     <p>
-    {{ article.content_markdown }}
+    {{ article.content_markdown|truncatewords_html:140 }}
     </p>
     <footer>
         <hr />
         <p><a href="/a/{{ article.id }}#comments">
-            {% for comment in comments %}
-            {% if comment.article == article.id %}
-                {% if comment.article|length < 2 %}
-                    {{ comment.article|length }}</a> commentaire -
-                {% else %}
-                    {{ comment.article|length }}</a> commentaires -
-                {% endif %}
-            {% endif %}
-            {% empty %}
-                0</a> commentaire - 
-            {% endfor %}
+            {{ article.nb_comments }}</a> {{ article.nb_comments|pluralize:"commentaire,commentaires" }} -
         {% for tag in article.tags.all %}
             <a href="/tag/{{ tag.slug }}/" title="Tag {{ tag.title }}">{{ tag.title }}</a>,
         {% empty %}

@@ -1,8 +1,22 @@
 {% extends "base.html" %}
 
-{% block title %}{{ categorie.name }}{% endblock %}
+{% block title %}
+
+{% if categorie %}
+
+{{ categorie.name }}
+
+{% else %}
+
+catégorie non trouvée
+
+{% endif %}
+
+{% endblock %}
 
 {% block content %}
+
+{% if categorie %}
 
 <article>
     <header>
@@ -18,9 +32,15 @@
         {% endfor %}
     </ul>
     {% else %}
-    Cette catégorie ne contient pas encore d'article.
+    <p class="error">Cette catégorie ne contient pas encore d'article.</p>
     {% endif %}
     </p>
 </article>
+
+{% else %}
+
+<p class="error">La catégorie n'existe pas !</p>
+
+{% endif %}
 
 {% endblock %}

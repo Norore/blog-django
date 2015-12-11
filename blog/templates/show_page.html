@@ -1,9 +1,22 @@
 {% extends "base.html" %}
 
-{% block title %}{{ page.title }}{% endblock %}
+{% block title %}
+
+{% if page.published %}
+
+{{ page.title }}
+
+{% else %}
+
+page non trouvée
+
+{% endif %}
+
+{% endblock %}
 
 {% block content %}
 
+{% if page.published %}
 <article>
     <header>
         <h1>{{ page.title }}</h1>
@@ -18,5 +31,10 @@
     </header>
     {{ page.content_markdown }}
 </article>
+{% else %}
+
+<p class="error">La page que vous cherchez n'existe pas !</p>
+
+{% endif %}
 
 {% endblock %}
