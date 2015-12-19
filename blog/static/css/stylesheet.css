@@ -167,3 +167,9 @@ p.error{
     color: red;
     padding: 4px;
 }
+p.info {
+    background: lightblue;
+    border: 1px solid blue;
+    color: blue;
+    padding: 4px;
+}

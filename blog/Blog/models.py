@@ -65,7 +65,7 @@ class Comment(models.Model):
     article = models.ForeignKey(Article)
     pseudo = models.CharField(max_length=20)
     email = models.EmailField(blank=True, null=True)
-    site = models.URLField(max_length=200, blank=True, null=True)
+    site = models.URLField(max_length=200, blank=True, null=True, default=False)
     comment = models.TextField()
     creation_date = models.DateTimeField()
     published = models.BooleanField(default=False)

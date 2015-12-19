@@ -23,6 +23,8 @@ urlpatterns = [
     url(r'^$', views.index, name='index'),
     url(r'p/(?P<page>[0-9]+)/$', views.show_page),
     url(r'c/(?P<cat>[0-9]+)/$', views.show_categorie),
+    url(r'list_categories/$', views.list_categories),
+    url(r'add_category/$', views.add_category),
     url(r'a/(?P<art>[0-9]+)/$', views.show_article),
     url(r'^admin/', include(admin.site.urls)),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block title %}
+
+Liste des catégories
+
+{% endblock %}
+
+{% block content %}
+
+{% if categories %}
+
+<article>
+    <header>
+        <h1>Liste des catégories existantes</h1>
+        <hr />
+    </header>
+    <p>
+    <dl>
+        {% for categorie in categories %}
+        <dt><a href="/c/{{ categorie.id }}" title="{{ categorie.name }}">{{ categorie.name }}</a></dt>
+        <dd>{{ categorie.desc_markdown }}</dd>
+        {% endfor %}
+    </ul>
+    <a href="/add_category/" title="Ajouter une catégorie">Ajouter une catégorie ?</a>
+    </p>
+</article>
+
+{% else %}
+
+<p class="error">Aucune catégorie n'existe !</p>
+
+{% endif %}
+
+{% endblock %}

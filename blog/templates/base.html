@@ -20,19 +20,21 @@
                 {% block content %}{% endblock %}
             </section>
             <aside id="quickmenu">
+                {% if user.is_authenticated %}
                 <section>
                     <header>
-                        <h1>Connecté sous Norore</h1>
+                        <h1>Connecté sous {{ user.username }}</h1>
                     </header>
                     <ul>
                         <li><a href="#">Changer mon profil</a></li>
-                        <li><a href="#">Ajouter une catégorie</a></li>
+                        <li><a href="/add_category/">Ajouter une catégorie</a></li>
                         <li><a href="#">Ajouter un article</a></li>
                         <li><a href="#">Ajouter une page</a></li>
-                        <li><a href="#">Commentaires à modérer</a> : 0</li>
+                        <li><a href="#">Commentaires à modérer</a> : {{ nb_comments.values.count }}</li>
                         <li><a href="/admin/">Administration globale</a></li>
                     </ul>
                 </section>
+                {% endif %}
                 <section>
                     <header>
                         <h1>Catégories</h1>

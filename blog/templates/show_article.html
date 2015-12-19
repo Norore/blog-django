@@ -25,16 +25,16 @@ article non trouvé
         par <a href="/auteur/{{ article.author}}">{{ article.author }}</a>, 
         dans <a href="/c/{{ article.categorie.id }}">{{ article.categorie }}</a>
         {% if article.edit_date %}
-        <br />
+        <br>
         Dernière modification le {{ article.edit_date }}
         {% endif %}
         </p>
-        <hr />
+        <hr>
     </header>
     {{ article.content_markdown }}
     <footer>
         <hr />
-        <p><a href="/a/{{ article.id }}#comments">
+        <p><a href="/a/{{ article.id }}#comments/">
             {{ comments.count }}</a> {{ comments.count|pluralize:"commentaire,commentaires" }} -
         {% for tag in article.tags.all %}
             <a href="/tag/{{ tag.slug }}/" title="Tag {{ tag.title }}">{{ tag.title }}</a>,
@@ -48,6 +48,10 @@ article non trouvé
     <header>
         <h1>La parole est à vous :</h1>
     </header>
+    <form action="/a/{{ article.id }}/" method="post">{% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Commenter">
+    </form>
 </section>
 
 <section id="comments">
@@ -68,7 +72,7 @@ article non trouvé
         {{ comment.content_markdown }}
     </article>
     {% empty %}
-    Personne n'a encore commenté cet article.
+    <p class="info">Personne n'a encore commenté cet article.</p>
     {% endfor %}
 </section>
 
