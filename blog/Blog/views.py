@@ -67,11 +67,9 @@ def add_category(request):
         if form.is_valid():
             name = form.cleaned_data['name']
             description = form.cleaned_data['description']
-            category = Categorie( name = name, \
-                                  description = description \
-                                )
+            category = Categorie(name = name, description = description)
             category.save()
-            return HttpResponseRedirect('list_categories')
+            return HttpResponseRedirect('/list_categories/')
         else:
             context = base()
             context['form'] = form
@@ -84,7 +82,7 @@ def add_category(request):
 
 def list_categories(request):
     try:
-        categories = Categorie.objects.all()
+        categories = Categorie.objects.all().order_by('name')
     except:
         categories = {}
 

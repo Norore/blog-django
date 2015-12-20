@@ -14,7 +14,7 @@ Nouvelle catégorie
         <h1>Ajouter une catégorie</h1>
         <hr>
     </header>
-    <form action="/list_categories/" method="post">{% csrf_token %}
+    <form action="/add_category/" method="post">{% csrf_token %}
         {{ form.as_p }}
         <input type="submit" value="Ajouter">
     </form>
