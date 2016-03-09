@@ -6,12 +6,12 @@ from Blog.models import *
 class AuthorAdmin(admin.ModelAdmin):
     list_display = ('author', 'site', 'avatar')
 
-class CategorieAdmin(admin.ModelAdmin):
+class CategoryAdmin(admin.ModelAdmin):
     list_display = ('name', 'description')
 
 class ArticleAdmin(admin.ModelAdmin):
-    list_filter = ['categorie', 'author', 'creation_date', 'edit_date', 'published']
-    list_display = ('title', 'categorie', 'author', 'creation_date', 'edit_date', 'published')
+    list_filter = ['category', 'author', 'creation_date', 'edit_date', 'published']
+    list_display = ('title', 'category', 'author', 'creation_date', 'edit_date', 'published')
 
 class PageAdmin(admin.ModelAdmin):
     list_filter = ['author', 'creation_date', 'edit_date', 'published']
@@ -22,7 +22,7 @@ class CommentAdmin(admin.ModelAdmin):
     list_display = ('article', 'pseudo', 'email', 'site', 'creation_date', 'published')
 
 admin.site.register(Author, AuthorAdmin)
-admin.site.register(Categorie, CategorieAdmin)
+admin.site.register(Category, CategoryAdmin)
 admin.site.register(Article, ArticleAdmin)
 admin.site.register(Comment, CommentAdmin)
 admin.site.register(Page, PageAdmin)

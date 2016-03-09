@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block title %}
+
+Liste des étiquettes
+
+{% endblock %}
+
+{% block content %}
+
+{% if tags %}
+
+<article>
+    <header>
+        <h1>Liste des étiquettes existantes</h1>
+        <hr />
+    </header>
+    <p>
+    <table>
+        <thead>
+            <th>Étiquette</th>
+            <th>Lien</th>
+            <th>Modifier ?</th>
+        </thead>
+        {% for tag in tags %}
+        <tr>
+            <td>{{tag.title}}</td>
+            <td>{{tag.slug}}</td>
+            <td><a href="/edit_tag/{{tag.id}}/" title="Modifier l'étiquette {{tag.title}}">Modifier</a></td>
+        <tr>
+        {% endfor %}
+    </table>
+    <a href="/add_tag/" title="Ajouter une étiquette">Ajouter une étiquette</a>
+    </p>
+</article>
+
+{% else %}
+
+<p class="error">Aucune étiquette n'existe !<br>
+<a href="/add_tag/" title="Créer la première étiquette">Créer votre première étiquette !</a></p>
+
+{% endif %}
+
+{% endblock %}

@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block title %}
+
+Modification de la catégorie {{ category.name }}
+
+{% endblock %}
+
+{% block content %}
+
+<section id="form">
+    <article>
+    <header>
+        <h1>Modification de la catégorie {{category.name}}</h1>
+        <hr>
+    </header>
+    <form action="/edit_category/{{ category.id }}/" method="post">{% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Mettre à jour">
+    </form>
+</article>
+</section>
+
+{% endblock %}

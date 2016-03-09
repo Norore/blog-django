@@ -2,7 +2,7 @@
 
 {% block title %}
 
-Nouvelle catégorie
+Nouvel article
 
 {% endblock %}
 
@@ -11,12 +11,12 @@ Nouvelle catégorie
 <section id="form">
     <article>
     <header>
-        <h1>Créer une catégorie</h1>
+        <h1>Créer un articlee</h1>
         <hr>
     </header>
-    <form action="/add_category/" method="post">{% csrf_token %}
+    <form action="/add_article/" method="post">{% csrf_token %}
         {{ form.as_p }}
-        <input type="submit" value="Créer la catégorie">
+        <input type="submit" value="Créer l'article">
     </form>
 </article>
 </section>

@@ -2,7 +2,7 @@
 
 {% block title %}
 
-Nouvelle catégorie
+Modification de la page {{inpage.title}}
 
 {% endblock %}
 
@@ -11,12 +11,12 @@ Nouvelle catégorie
 <section id="form">
     <article>
     <header>
-        <h1>Créer une catégorie</h1>
+        <h1>Modification de la page {{inpage.title}}</h1>
         <hr>
     </header>
-    <form action="/add_category/" method="post">{% csrf_token %}
+    <form action="/edit_page/{{inpage.id}}/" method="post">{% csrf_token %}
         {{ form.as_p }}
-        <input type="submit" value="Créer la catégorie">
+        <input type="submit" value="Modifier la page">
     </form>
 </article>
 </section>

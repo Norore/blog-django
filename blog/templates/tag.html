@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% block title %}
+
+{% if tag %}
+
+{{tag.title}}
+
+{% else %}
+
+étiquette non trouvée
+
+{% endif %}
+
+{% endblock %}
+
+{% block content %}
+
+{% if tag %}
+
+<article>
+    <header>
+        <h1>Étiquette {{tag.title}}</h1>
+        {% if user.is_authenticated %}
+        <p><a href="/edit_tag/{{tag.id}}/" title="Modifier l'étiquette {{tag.title}}">Modifier</a>
+        {% endif %}
+        <hr />
+    </header>
+    {% if user.is_authenticated %}
+    <p><a href="/add_article/" title="Ajouter un article">Nouvel article</a></p>
+    {% endif %}
+    <p>
+    {% if articles|length > 0 %}
+    <dl>
+        {% for article in articles %}
+        <dt><a href="/a/{{ article.id }}" title="Lire l'article {{ article.title }}">{{ article.title }}</a></dt>
+        <dd>{{article.content_markdown|truncatewords_html:80}}</dd>
+        {% endfor %}
+    </dl>
+    {% else %}
+    <p class="error">Cette étiquette ne contient pas encore d'article.</p>
+    {% endif %}
+    </p>
+</article>
+
+{% else %}
+
+<p class="error">L'étiquette n'existe pas !</p>
+
+{% endif %}
+
+{% endblock %}

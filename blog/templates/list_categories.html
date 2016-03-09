@@ -16,19 +16,28 @@ Liste des catégories
         <hr />
     </header>
     <p>
-    <dl>
-        {% for categorie in categories %}
-        <dt><a href="/c/{{ categorie.id }}" title="{{ categorie.name }}">{{ categorie.name }}</a></dt>
-        <dd>{{ categorie.desc_markdown }}</dd>
+    <table>
+        <thead>
+            <th>Catégorie</th>
+            <th>Description</th>
+            <th>Modifier ?</th>
+        </thead>
+        {% for category in categories %}
+        <tr>
+            <td><a href="/c/{{ category.id }}/" title="Voir les articles de la catégorie {{ category.name }}">{{ category.name }}</a></td>
+            <td>{{ category.desc_markdown }}</td>
+            <td><a href="/edit_category/{{ category.id }}/" title="Modifier la catégorie {{ category.name }}">Modifier</a></td>
+        </tr>
         {% endfor %}
-    </ul>
-    <a href="/add_category/" title="Ajouter une catégorie">Ajouter une catégorie ?</a>
+    </table>
+    <a href="/add_category/" title="Ajouter une catégorie">Ajouter une catégorie</a>
     </p>
 </article>
 
 {% else %}
 
-<p class="error">Aucune catégorie n'existe !</p>
+<p class="error">Aucune catégorie n'existe !<br>
+<a href="/add_category/" title="Créer la première catégorie">Créer votre première catégorie !</a></p>
 
 {% endif %}
 

@@ -1,17 +1,28 @@
 from django import forms
+from models import *
+from django.contrib.auth import update_session_auth_hash
 
-class CommentForm(forms.Form):
-    pseudo = forms.CharField(max_length=20)
-    email = forms.EmailField()
-    site = forms.URLField()
-    commentaire = forms.CharField(widget=forms.Textarea)
+class CommentForm(forms.ModelForm):
+    class Meta:
+        model = Comment
+        exclude = ('published', 'creation_date', 'article')
 
-class CategoryForm(forms.Form):
-    name = forms.CharField(max_length=60)
-    description = forms.CharField(widget=forms.Textarea)
+class CategoryForm(forms.ModelForm):
+    class Meta:
+        model = Category
+        exclude = ()
 
-class PageForm(forms.Form):
-    title = forme.CharField(max_length=200)
-    content = forms.CharField(widget=forms.Textarea)
-    published = forms.BooleanField(default=False)
-    creation_date = forms.DateField()
+class PageForm(forms.ModelForm):
+    class Meta:
+        model = Page
+        exclude = ('creation_date', 'edit_date',)
+
+class ArticleForm(forms.ModelForm):
+    class Meta:
+        model = Article
+        exclude = ()
+
+class TagForm(forms.ModelForm):
+    class Meta:
+        model = Tags
+        exclude = ()

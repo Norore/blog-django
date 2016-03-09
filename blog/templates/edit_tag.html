@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block title %}
+
+Modification de l'étiquette {{tag.title}}
+
+{% endblock %}
+
+{% block content %}
+
+<section id="form">
+    <article>
+    <header>
+        <h1>Modifier l'étiquette {{tag.title}}</h1>
+        <hr>
+    </header>
+    <form action="/edit_tag/{{tag.id}}/" method="POST">{% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Mettre à jour l'étiquette">
+    </form>
+</article>
+</section>
+
+{% endblock %}

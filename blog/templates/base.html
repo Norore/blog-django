@@ -9,9 +9,9 @@
         <header id="mainheader"><p>En tête du blog</p></header>
         <nav id="mainmenu">
             <ul>
-                <li><a href="/">Accueil</a></li>
-                {% for page in pages %}
-                <li><a href="/p/{{page.id}}">{{ page.title }}</a></li>
+                <li><a href="/" title="Revenir à l'accueil">Accueil</a></li>
+                {% for p in pages %}
+                <li><a href="/p/{{p.id}}" title="Lire la page {{p.title}}">{{ p.title }}</a></li>
                 {% endfor %}
             </ul>
         </nav>
@@ -25,13 +25,29 @@
                     <header>
                         <h1>Connecté sous {{ user.username }}</h1>
                     </header>
+                    <p><a href="#">Changer mon profil</a></p>
+                    <hr>
                     <ul>
-                        <li><a href="#">Changer mon profil</a></li>
-                        <li><a href="/add_category/">Ajouter une catégorie</a></li>
-                        <li><a href="#">Ajouter un article</a></li>
-                        <li><a href="#">Ajouter une page</a></li>
-                        <li><a href="#">Commentaires à modérer</a> : {{ nb_comments.values.count }}</li>
-                        <li><a href="/admin/">Administration globale</a></li>
+                        <li><a href="/add_category/" title="Ajouter une catégorie">Ajouter une catégorie</a></li>
+                        <li><a href="/list_categories/" title="Afficher la liste des catégorie">Liste des catégories</a></li>
+                    </ul>
+                    <hr>
+                    <ul>
+                        <li><a href="/add_article/" title="Ajouter un article">Ajouter un article</a></li>
+                        <li><a href="/unpub_articles/" title="Afficher la liste des articles non publiés">Liste des articles non publiés</a></li>
+                        <li><a href="/pub_articles/" title="Afficher la liste des articles publiés">Liste des articles publiés</a></li>
+                        <li><a href="/add_tag/" title="Ajouter une étiquette">Ajouter une étiquette</a></li>
+                        <li><a href="/list_tags/" title="Afficher la liste des étiquettes">Liste des étiquettes</a></li>
+                    </ul>
+                    <hr>
+                    <ul>
+                        <li><a href="/add_page/" title="Ajouter une page">Ajouter une page</a></li>
+                        <li><a href="/list_pages/" title="Afficher la liste des pages">Liste des pages</a></li>
+                    </ul>
+                    <hr>
+                    <ul>
+                        <li><a href="#" title="{{ nb_comments.values.count}} commentaire(s) à modérer">Commentaires à modérer</a> : {{ nb_comments.values.count }}</li>
+                        <li><a href="/admin/" title="Administration générale">Administration globale</a></li>
                     </ul>
                 </section>
                 {% endif %}
@@ -40,8 +56,8 @@
                         <h1>Catégories</h1>
                     </header>
                     <ul>
-                        {% for categorie in cats %}
-                        <li><a href="/c/{{ categorie.id }}">{{ categorie.name }}</a> ({{ categorie.nb_articles }})</li>
+                        {% for category in cats %}
+                        <li><a href="/c/{{ category.id }}">{{ category.name }}</a> ({{ category.nb_articles }})</li>
                         {% empty %}
                         <li>Aucune catégorie</li>
                         {% endfor %}
@@ -78,6 +94,8 @@
                     <ul>
                         {% for url in links %}
                         <li><a href="{{ url.link }}" title="{{ url.description }}">{{ url.name }}</a></li>
+                        {% empty %}
+                        <li>Aucun lien</li>
                         {% endfor %}
                     </ul>
                 </section>

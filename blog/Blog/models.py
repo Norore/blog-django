@@ -3,8 +3,8 @@ from django.contrib.auth.models import User
 from django.utils.dateformat import DateFormat
 from django.utils.safestring import mark_safe
 import markdown
-from datetime import datetime
 import os
+from django.utils.timezone import now
 
 # Create your models here.
 class Author(models.Model):
@@ -15,7 +15,7 @@ class Author(models.Model):
     def __unicode__(self):
         return self.author.username
 
-class Categorie(models.Model):
+class Category(models.Model):
     name = models.CharField(max_length=60)
     description = models.TextField()
     def __unicode__(self):
@@ -38,7 +38,7 @@ class Tags(models.Model):
 class Article(models.Model):
     title = models.CharField(max_length=200)
     author = models.ForeignKey(Author)
-    categorie = models.ForeignKey(Categorie)
+    category = models.ForeignKey(Category)
     content = models.TextField()
     creation_date = models.DateTimeField()
     edit_date = models.DateTimeField(blank=True, null=True)
@@ -54,7 +54,7 @@ class Page(models.Model):
     author = models.ForeignKey(Author)
     content = models.TextField()
     published = models.BooleanField(default=False)
-    creation_date = models.DateTimeField()
+    creation_date = models.DateTimeField(default=now)
     edit_date = models.DateTimeField(blank=True, null=True)
     def __unicode__(self):
         return self.title
@@ -65,7 +65,7 @@ class Comment(models.Model):
     article = models.ForeignKey(Article)
     pseudo = models.CharField(max_length=20)
     email = models.EmailField(blank=True, null=True)
-    site = models.URLField(max_length=200, blank=True, null=True, default=False)
+    site = models.URLField(max_length=200, blank=True, null=True)
     comment = models.TextField()
     creation_date = models.DateTimeField()
     published = models.BooleanField(default=False)

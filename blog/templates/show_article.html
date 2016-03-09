@@ -37,7 +37,7 @@ article non trouvé
         <p><a href="/a/{{ article.id }}#comments/">
             {{ comments.count }}</a> {{ comments.count|pluralize:"commentaire,commentaires" }} -
         {% for tag in article.tags.all %}
-            <a href="/tag/{{ tag.slug }}/" title="Tag {{ tag.title }}">{{ tag.title }}</a>,
+            <a href="/tag/{{tag.slug}}/" title="Voir les articles étiquettés {{tag.title}}">{{ tag.title }}</a>,
         {% empty %}
             aucun tag
         {% endfor %}

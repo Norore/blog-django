@@ -173,3 +173,21 @@ p.info {
     color: blue;
     padding: 4px;
 }
+
+/* table contents */
+
+table {
+    border: 1px solid black;
+    border-collapse: collapse;
+    margin: 4px;
+}
+thead {
+    background: #222;
+    color: lightgrey;
+}
+td, th {
+    padding: 2px;
+}
+td {
+    border: 1px solid #222;
+}

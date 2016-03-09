@@ -10,8 +10,8 @@
     <header>
         <h1>{{ article.title }}</h1>
         <p>Publié le {{ article.creation_date }}, 
-            par <a href="/auteur/{{ article.author }}">{{ article.author }}</a>, 
-            dans <a href="/c/{{ article.categorie.id }}">{{ article.categorie }}</a>
+        par <a href="/auteur/{{ article.author }}" title="Voir le profil de {{article.author}}">{{ article.author }}</a>, 
+            dans <a href="/c/{{ article.category.id }}">{{ article.category }}</a>
             {% if article.edit_date %}
             <br />
             Modifé le {{ article.edit_date }}

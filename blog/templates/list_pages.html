@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block title %}
+
+Liste des pages
+
+{% endblock %}
+
+{% block content %}
+
+{% if pages %}
+
+<article>
+    <header>
+        <h1>Liste des pages existantes</h1>
+        <hr />
+    </header>
+    <p>
+    <table>
+        <thead>
+            <th>Page</th>
+            <th>Description</th>
+            <th>Modifier ?</th>
+        </thead>
+        {% for page in pages %}
+        <tr>
+            <td><a href="/p/{{ page.id }}/" title="Voir la page {{ page.title }}">{{ page.title }}</a></td>
+            <td>{{ page.content_markdown|truncatewords_html:80 }}</td>
+            <td><a href="/edit_page/{{ page.id }}/" title="Modifier la page {{ page.title }}">Modifier</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+    <a href="/add_page/" title="Ajouter une page">Ajouter une page</a>
+    </p>
+</article>
+
+{% else %}
+
+<p class="error">Aucune page n'existe !<br>
+<a href="/add_page/" title="Créer la première page">Créer votre première page !</a></p>
+
+{% endif %}
+
+{% endblock %}
